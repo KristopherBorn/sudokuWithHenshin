@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_59_I4JXeEeaBSo6hlTbTEw">
+  <imports href="../model/sudoku.ecore#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_8s3xAJXeEeaBSo6hlTbTEw" name="isOneCandidate">
+    <lhs xmi:id="_8ulBMJXeEeaBSo6hlTbTEw" name="Lhs">
+      <nodes xmi:id="_e0cTQJXfEeaBSo6hlTbTEw" incoming="_G-Hh4JXgEeaBSo6hlTbTEw _HZnyIJXgEeaBSo6hlTbTEw _HxopgJXgEeaBSo6hlTbTEw">
+        <type href="../model/sudoku.ecore#//Field"/>
+      </nodes>
+      <nodes xmi:id="_gfA-sJXfEeaBSo6hlTbTEw" outgoing="_HxopgJXgEeaBSo6hlTbTEw">
+        <type href="../model/sudoku.ecore#//Grid"/>
+      </nodes>
+      <nodes xmi:id="_g4q00JXfEeaBSo6hlTbTEw" outgoing="_G-Hh4JXgEeaBSo6hlTbTEw">
+        <type href="../model/sudoku.ecore#//Row"/>
+      </nodes>
+      <nodes xmi:id="_h0eVwJXfEeaBSo6hlTbTEw" outgoing="_HZnyIJXgEeaBSo6hlTbTEw">
+        <type href="../model/sudoku.ecore#//Column"/>
+      </nodes>
+      <edges xmi:id="_G-Hh4JXgEeaBSo6hlTbTEw" source="_g4q00JXfEeaBSo6hlTbTEw" target="_e0cTQJXfEeaBSo6hlTbTEw">
+        <type href="../model/sudoku.ecore#//Row/fields"/>
+      </edges>
+      <edges xmi:id="_HZnyIJXgEeaBSo6hlTbTEw" source="_h0eVwJXfEeaBSo6hlTbTEw" target="_e0cTQJXfEeaBSo6hlTbTEw">
+        <type href="../model/sudoku.ecore#//Column/fields"/>
+      </edges>
+      <edges xmi:id="_HxopgJXgEeaBSo6hlTbTEw" source="_gfA-sJXfEeaBSo6hlTbTEw" target="_e0cTQJXfEeaBSo6hlTbTEw">
+        <type href="../model/sudoku.ecore#//Grid/fields"/>
+      </edges>
+      <formula xsi:type="henshin:Not" xmi:id="_KRk2sJXgEeaBSo6hlTbTEw">
+        <child xsi:type="henshin:NestedCondition" xmi:id="_KRldwJXgEeaBSo6hlTbTEw">
+          <conclusion xmi:id="_KRldwZXgEeaBSo6hlTbTEw">
+            <nodes xmi:id="_KRldwpXgEeaBSo6hlTbTEw" incoming="_KRldxpXgEeaBSo6hlTbTEw _KRldyZXgEeaBSo6hlTbTEw _KRldzJXgEeaBSo6hlTbTEw">
+              <type href="../model/sudoku.ecore#//Field"/>
+            </nodes>
+            <nodes xmi:id="_KRldxJXgEeaBSo6hlTbTEw" outgoing="_KRldxpXgEeaBSo6hlTbTEw _IZhI4JXgEeaBSo6hlTbTEw">
+              <type href="../model/sudoku.ecore#//Row"/>
+            </nodes>
+            <nodes xmi:id="_KRldx5XgEeaBSo6hlTbTEw" outgoing="_KRldyZXgEeaBSo6hlTbTEw _I1LKIJXgEeaBSo6hlTbTEw">
+              <type href="../model/sudoku.ecore#//Column"/>
+            </nodes>
+            <nodes xmi:id="_KRldypXgEeaBSo6hlTbTEw" outgoing="_KRldzJXgEeaBSo6hlTbTEw _JK1REJXgEeaBSo6hlTbTEw">
+              <type href="../model/sudoku.ecore#//Grid"/>
+            </nodes>
+            <nodes xmi:id="_fFx64JXfEeaBSo6hlTbTEw" incoming="_I1LKIJXgEeaBSo6hlTbTEw">
+              <type href="../model/sudoku.ecore#//Field"/>
+              <attributes xmi:id="_QZblwJXgEeaBSo6hlTbTEw" value="1">
+                <type href="../model/sudoku.ecore#//Field/value"/>
+              </attributes>
+            </nodes>
+            <nodes xmi:id="_fUKVIJXfEeaBSo6hlTbTEw" incoming="_IZhI4JXgEeaBSo6hlTbTEw">
+              <type href="../model/sudoku.ecore#//Field"/>
+              <attributes xmi:id="_OMoXAJXgEeaBSo6hlTbTEw" value="1">
+                <type href="../model/sudoku.ecore#//Field/value"/>
+              </attributes>
+            </nodes>
+            <nodes xmi:id="_gG4ykJXfEeaBSo6hlTbTEw" incoming="_JK1REJXgEeaBSo6hlTbTEw">
+              <type href="../model/sudoku.ecore#//Field"/>
+              <attributes xmi:id="_PVQzAJXgEeaBSo6hlTbTEw" value="1">
+                <type href="../model/sudoku.ecore#//Field/value"/>
+              </attributes>
+            </nodes>
+            <edges xmi:id="_KRldxpXgEeaBSo6hlTbTEw" source="_KRldxJXgEeaBSo6hlTbTEw" target="_KRldwpXgEeaBSo6hlTbTEw">
+              <type href="../model/sudoku.ecore#//Row/fields"/>
+            </edges>
+            <edges xmi:id="_KRldyZXgEeaBSo6hlTbTEw" source="_KRldx5XgEeaBSo6hlTbTEw" target="_KRldwpXgEeaBSo6hlTbTEw">
+              <type href="../model/sudoku.ecore#//Column/fields"/>
+            </edges>
+            <edges xmi:id="_KRldzJXgEeaBSo6hlTbTEw" source="_KRldypXgEeaBSo6hlTbTEw" target="_KRldwpXgEeaBSo6hlTbTEw">
+              <type href="../model/sudoku.ecore#//Grid/fields"/>
+            </edges>
+            <edges xmi:id="_IZhI4JXgEeaBSo6hlTbTEw" source="_KRldxJXgEeaBSo6hlTbTEw" target="_fUKVIJXfEeaBSo6hlTbTEw">
+              <type href="../model/sudoku.ecore#//Row/fields"/>
+            </edges>
+            <edges xmi:id="_I1LKIJXgEeaBSo6hlTbTEw" source="_KRldx5XgEeaBSo6hlTbTEw" target="_fFx64JXfEeaBSo6hlTbTEw">
+              <type href="../model/sudoku.ecore#//Column/fields"/>
+            </edges>
+            <edges xmi:id="_JK1REJXgEeaBSo6hlTbTEw" source="_KRldypXgEeaBSo6hlTbTEw" target="_gG4ykJXfEeaBSo6hlTbTEw">
+              <type href="../model/sudoku.ecore#//Grid/fields"/>
+            </edges>
+          </conclusion>
+          <mappings xmi:id="_KRldw5XgEeaBSo6hlTbTEw" origin="_e0cTQJXfEeaBSo6hlTbTEw" image="_KRldwpXgEeaBSo6hlTbTEw"/>
+          <mappings xmi:id="_KRldxZXgEeaBSo6hlTbTEw" origin="_g4q00JXfEeaBSo6hlTbTEw" image="_KRldxJXgEeaBSo6hlTbTEw"/>
+          <mappings xmi:id="_KRldyJXgEeaBSo6hlTbTEw" origin="_h0eVwJXfEeaBSo6hlTbTEw" image="_KRldx5XgEeaBSo6hlTbTEw"/>
+          <mappings xmi:id="_KRldy5XgEeaBSo6hlTbTEw" origin="_gfA-sJXfEeaBSo6hlTbTEw" image="_KRldypXgEeaBSo6hlTbTEw"/>
+        </child>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_8ulBMZXeEeaBSo6hlTbTEw" name="Rhs">
+      <nodes xmi:id="_e0cTQZXfEeaBSo6hlTbTEw" incoming="_G-II8JXgEeaBSo6hlTbTEw _HZnyIZXgEeaBSo6hlTbTEw _HxopgZXgEeaBSo6hlTbTEw">
+        <type href="../model/sudoku.ecore#//Field"/>
+        <attributes xmi:id="_ttPTgJXfEeaBSo6hlTbTEw" value="true">
+          <type href="../model/sudoku.ecore#//Field/oneCandidate"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_gfA-sZXfEeaBSo6hlTbTEw" outgoing="_HxopgZXgEeaBSo6hlTbTEw">
+        <type href="../model/sudoku.ecore#//Grid"/>
+      </nodes>
+      <nodes xmi:id="_g4q00ZXfEeaBSo6hlTbTEw" outgoing="_G-II8JXgEeaBSo6hlTbTEw">
+        <type href="../model/sudoku.ecore#//Row"/>
+      </nodes>
+      <nodes xmi:id="_h0eVwZXfEeaBSo6hlTbTEw" outgoing="_HZnyIZXgEeaBSo6hlTbTEw">
+        <type href="../model/sudoku.ecore#//Column"/>
+      </nodes>
+      <edges xmi:id="_G-II8JXgEeaBSo6hlTbTEw" source="_g4q00ZXfEeaBSo6hlTbTEw" target="_e0cTQZXfEeaBSo6hlTbTEw">
+        <type href="../model/sudoku.ecore#//Row/fields"/>
+      </edges>
+      <edges xmi:id="_HZnyIZXgEeaBSo6hlTbTEw" source="_h0eVwZXfEeaBSo6hlTbTEw" target="_e0cTQZXfEeaBSo6hlTbTEw">
+        <type href="../model/sudoku.ecore#//Column/fields"/>
+      </edges>
+      <edges xmi:id="_HxopgZXgEeaBSo6hlTbTEw" source="_gfA-sZXfEeaBSo6hlTbTEw" target="_e0cTQZXfEeaBSo6hlTbTEw">
+        <type href="../model/sudoku.ecore#//Grid/fields"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_e0f9oJXfEeaBSo6hlTbTEw" origin="_e0cTQJXfEeaBSo6hlTbTEw" image="_e0cTQZXfEeaBSo6hlTbTEw"/>
+    <mappings xmi:id="_gfA-spXfEeaBSo6hlTbTEw" origin="_gfA-sJXfEeaBSo6hlTbTEw" image="_gfA-sZXfEeaBSo6hlTbTEw"/>
+    <mappings xmi:id="_g4q00pXfEeaBSo6hlTbTEw" origin="_g4q00JXfEeaBSo6hlTbTEw" image="_g4q00ZXfEeaBSo6hlTbTEw"/>
+    <mappings xmi:id="_h0eVwpXfEeaBSo6hlTbTEw" origin="_h0eVwJXfEeaBSo6hlTbTEw" image="_h0eVwZXfEeaBSo6hlTbTEw"/>
+  </units>
+</henshin:Module>
