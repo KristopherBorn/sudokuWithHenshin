@@ -11,7 +11,9 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sudoku.ecore#//Grid/fields"/>
     </genClasses>
     <genClasses ecoreClass="sudoku.ecore#//Subgrid">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference sudoku.ecore#//Subgrid/fildsInBox"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference sudoku.ecore#//Subgrid/fieldsInBox"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference sudoku.ecore#//Subgrid/rows"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference sudoku.ecore#//Subgrid/columns"/>
     </genClasses>
     <genClasses ecoreClass="sudoku.ecore#//Field">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sudoku.ecore#//Field/value"/>
@@ -25,12 +27,16 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sudoku.ecore#//Field/sevenCandidate"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sudoku.ecore#//Field/eightCandidate"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sudoku.ecore#//Field/nineCandidate"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference sudoku.ecore#//Field/column"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference sudoku.ecore#//Field/row"/>
     </genClasses>
     <genClasses ecoreClass="sudoku.ecore#//Row">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference sudoku.ecore#//Row/fields"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference sudoku.ecore#//Row/subgrid"/>
     </genClasses>
     <genClasses ecoreClass="sudoku.ecore#//Column">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference sudoku.ecore#//Column/fields"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference sudoku.ecore#//Column/subgrid"/>
     </genClasses>
     <genClasses ecoreClass="sudoku.ecore#//Sudoku">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sudoku.ecore#//Sudoku/Grid"/>

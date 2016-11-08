@@ -113,13 +113,31 @@ public interface SudokuPackage extends EPackage {
 	int SUBGRID = 1;
 
 	/**
-	 * The feature id for the '<em><b>Filds In Box</b></em>' reference list.
+	 * The feature id for the '<em><b>Fields In Box</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SUBGRID__FILDS_IN_BOX = 0;
+	int SUBGRID__FIELDS_IN_BOX = 0;
+
+	/**
+	 * The feature id for the '<em><b>Rows</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUBGRID__ROWS = 1;
+
+	/**
+	 * The feature id for the '<em><b>Columns</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUBGRID__COLUMNS = 2;
 
 	/**
 	 * The number of structural features of the '<em>Subgrid</em>' class.
@@ -128,7 +146,7 @@ public interface SudokuPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SUBGRID_FEATURE_COUNT = 1;
+	int SUBGRID_FEATURE_COUNT = 3;
 
 	/**
 	 * The number of operations of the '<em>Subgrid</em>' class.
@@ -249,13 +267,31 @@ public interface SudokuPackage extends EPackage {
 	int FIELD__NINE_CANDIDATE = 10;
 
 	/**
+	 * The feature id for the '<em><b>Column</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FIELD__COLUMN = 11;
+
+	/**
+	 * The feature id for the '<em><b>Row</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FIELD__ROW = 12;
+
+	/**
 	 * The number of structural features of the '<em>Field</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FIELD_FEATURE_COUNT = 11;
+	int FIELD_FEATURE_COUNT = 13;
 
 	/**
 	 * The number of operations of the '<em>Field</em>' class.
@@ -286,13 +322,22 @@ public interface SudokuPackage extends EPackage {
 	int ROW__FIELDS = 0;
 
 	/**
+	 * The feature id for the '<em><b>Subgrid</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROW__SUBGRID = 1;
+
+	/**
 	 * The number of structural features of the '<em>Row</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ROW_FEATURE_COUNT = 1;
+	int ROW_FEATURE_COUNT = 2;
 
 	/**
 	 * The number of operations of the '<em>Row</em>' class.
@@ -323,13 +368,22 @@ public interface SudokuPackage extends EPackage {
 	int COLUMN__FIELDS = 0;
 
 	/**
+	 * The feature id for the '<em><b>Subgrid</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMN__SUBGRID = 1;
+
+	/**
 	 * The number of structural features of the '<em>Column</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COLUMN_FEATURE_COUNT = 1;
+	int COLUMN_FEATURE_COUNT = 2;
 
 	/**
 	 * The number of operations of the '<em>Column</em>' class.
@@ -439,15 +493,37 @@ public interface SudokuPackage extends EPackage {
 	EClass getSubgrid();
 
 	/**
-	 * Returns the meta object for the reference list '{@link sudoku.Subgrid#getFildsInBox <em>Filds In Box</em>}'.
+	 * Returns the meta object for the reference list '{@link sudoku.Subgrid#getFieldsInBox <em>Fields In Box</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Filds In Box</em>'.
-	 * @see sudoku.Subgrid#getFildsInBox()
+	 * @return the meta object for the reference list '<em>Fields In Box</em>'.
+	 * @see sudoku.Subgrid#getFieldsInBox()
 	 * @see #getSubgrid()
 	 * @generated
 	 */
-	EReference getSubgrid_FildsInBox();
+	EReference getSubgrid_FieldsInBox();
+
+	/**
+	 * Returns the meta object for the reference list '{@link sudoku.Subgrid#getRows <em>Rows</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Rows</em>'.
+	 * @see sudoku.Subgrid#getRows()
+	 * @see #getSubgrid()
+	 * @generated
+	 */
+	EReference getSubgrid_Rows();
+
+	/**
+	 * Returns the meta object for the reference list '{@link sudoku.Subgrid#getColumns <em>Columns</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Columns</em>'.
+	 * @see sudoku.Subgrid#getColumns()
+	 * @see #getSubgrid()
+	 * @generated
+	 */
+	EReference getSubgrid_Columns();
 
 	/**
 	 * Returns the meta object for class '{@link sudoku.Field <em>Field</em>}'.
@@ -581,6 +657,28 @@ public interface SudokuPackage extends EPackage {
 	EAttribute getField_NineCandidate();
 
 	/**
+	 * Returns the meta object for the reference '{@link sudoku.Field#getColumn <em>Column</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Column</em>'.
+	 * @see sudoku.Field#getColumn()
+	 * @see #getField()
+	 * @generated
+	 */
+	EReference getField_Column();
+
+	/**
+	 * Returns the meta object for the reference '{@link sudoku.Field#getRow <em>Row</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Row</em>'.
+	 * @see sudoku.Field#getRow()
+	 * @see #getField()
+	 * @generated
+	 */
+	EReference getField_Row();
+
+	/**
 	 * Returns the meta object for class '{@link sudoku.Row <em>Row</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -602,6 +700,17 @@ public interface SudokuPackage extends EPackage {
 	EReference getRow_Fields();
 
 	/**
+	 * Returns the meta object for the reference list '{@link sudoku.Row#getSubgrid <em>Subgrid</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Subgrid</em>'.
+	 * @see sudoku.Row#getSubgrid()
+	 * @see #getRow()
+	 * @generated
+	 */
+	EReference getRow_Subgrid();
+
+	/**
 	 * Returns the meta object for class '{@link sudoku.Column <em>Column</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -621,6 +730,17 @@ public interface SudokuPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getColumn_Fields();
+
+	/**
+	 * Returns the meta object for the reference list '{@link sudoku.Column#getSubgrid <em>Subgrid</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Subgrid</em>'.
+	 * @see sudoku.Column#getSubgrid()
+	 * @see #getColumn()
+	 * @generated
+	 */
+	EReference getColumn_Subgrid();
 
 	/**
 	 * Returns the meta object for class '{@link sudoku.Sudoku <em>Sudoku</em>}'.
@@ -725,12 +845,28 @@ public interface SudokuPackage extends EPackage {
 		EClass SUBGRID = eINSTANCE.getSubgrid();
 
 		/**
-		 * The meta object literal for the '<em><b>Filds In Box</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Fields In Box</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference SUBGRID__FILDS_IN_BOX = eINSTANCE.getSubgrid_FildsInBox();
+		EReference SUBGRID__FIELDS_IN_BOX = eINSTANCE.getSubgrid_FieldsInBox();
+
+		/**
+		 * The meta object literal for the '<em><b>Rows</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SUBGRID__ROWS = eINSTANCE.getSubgrid_Rows();
+
+		/**
+		 * The meta object literal for the '<em><b>Columns</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SUBGRID__COLUMNS = eINSTANCE.getSubgrid_Columns();
 
 		/**
 		 * The meta object literal for the '{@link sudoku.impl.FieldImpl <em>Field</em>}' class.
@@ -831,6 +967,22 @@ public interface SudokuPackage extends EPackage {
 		EAttribute FIELD__NINE_CANDIDATE = eINSTANCE.getField_NineCandidate();
 
 		/**
+		 * The meta object literal for the '<em><b>Column</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FIELD__COLUMN = eINSTANCE.getField_Column();
+
+		/**
+		 * The meta object literal for the '<em><b>Row</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FIELD__ROW = eINSTANCE.getField_Row();
+
+		/**
 		 * The meta object literal for the '{@link sudoku.impl.RowImpl <em>Row</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -849,6 +1001,14 @@ public interface SudokuPackage extends EPackage {
 		EReference ROW__FIELDS = eINSTANCE.getRow_Fields();
 
 		/**
+		 * The meta object literal for the '<em><b>Subgrid</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ROW__SUBGRID = eINSTANCE.getRow_Subgrid();
+
+		/**
 		 * The meta object literal for the '{@link sudoku.impl.ColumnImpl <em>Column</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -865,6 +1025,14 @@ public interface SudokuPackage extends EPackage {
 		 * @generated
 		 */
 		EReference COLUMN__FIELDS = eINSTANCE.getColumn_Fields();
+
+		/**
+		 * The meta object literal for the '<em><b>Subgrid</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COLUMN__SUBGRID = eINSTANCE.getColumn_Subgrid();
 
 		/**
 		 * The meta object literal for the '{@link sudoku.impl.SudokuImpl <em>Sudoku</em>}' class.

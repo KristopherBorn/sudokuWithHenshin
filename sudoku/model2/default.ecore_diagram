@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmi:id="_IrzUoKTnEeaX27fWJyB_Zg" type="Ecore" name="default.ecore_diagram" measurementUnit="Pixel">
+  <children xmi:type="notation:Shape" xmi:id="_J0T00KTnEeaX27fWJyB_Zg" type="2001" fontName="Segoe UI">
+    <children xmi:type="notation:DecorationNode" xmi:id="_J0Ub4KTnEeaX27fWJyB_Zg" type="5001"/>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_J0VC8KTnEeaX27fWJyB_Zg" type="7001">
+      <styles xmi:type="notation:SortingStyle" xmi:id="_J0VC8aTnEeaX27fWJyB_Zg"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_J0VC8qTnEeaX27fWJyB_Zg"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_J0VC86TnEeaX27fWJyB_Zg" type="7002">
+      <styles xmi:type="notation:SortingStyle" xmi:id="_J0VC9KTnEeaX27fWJyB_Zg"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_J0VC9aTnEeaX27fWJyB_Zg"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_J0VC9qTnEeaX27fWJyB_Zg" type="7003">
+      <styles xmi:type="notation:SortingStyle" xmi:id="_J0VC96TnEeaX27fWJyB_Zg"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_J0VC-KTnEeaX27fWJyB_Zg"/>
+    </children>
+    <element xmi:type="ecore:EClass" href="default.ecore#//sudoku"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_J0T00aTnEeaX27fWJyB_Zg" x="204" y="74"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="_P_C4wKTnEeaX27fWJyB_Zg" type="2001" fontName="Segoe UI">
+    <children xmi:type="notation:DecorationNode" xmi:id="_P_C4wqTnEeaX27fWJyB_Zg" type="5001"/>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_P_C4w6TnEeaX27fWJyB_Zg" type="7001">
+      <styles xmi:type="notation:SortingStyle" xmi:id="_P_C4xKTnEeaX27fWJyB_Zg"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_P_C4xaTnEeaX27fWJyB_Zg"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_P_C4xqTnEeaX27fWJyB_Zg" type="7002">
+      <styles xmi:type="notation:SortingStyle" xmi:id="_P_C4x6TnEeaX27fWJyB_Zg"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_P_C4yKTnEeaX27fWJyB_Zg"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_P_Df0KTnEeaX27fWJyB_Zg" type="7003">
+      <styles xmi:type="notation:SortingStyle" xmi:id="_P_Df0aTnEeaX27fWJyB_Zg"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_P_Df0qTnEeaX27fWJyB_Zg"/>
+    </children>
+    <element xmi:type="ecore:EClass" href="default.ecore#//row2"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_P_C4waTnEeaX27fWJyB_Zg" x="55" y="245" width="151" height="5"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_IrzUoaTnEeaX27fWJyB_Zg"/>
+  <element xmi:type="ecore:EPackage" href="default.ecore#/"/>
+  <edges xmi:type="notation:Connector" xmi:id="_RvuMMKTnEeaX27fWJyB_Zg" type="4003" source="_J0T00KTnEeaX27fWJyB_Zg" target="_P_C4wKTnEeaX27fWJyB_Zg">
+    <children xmi:type="notation:DecorationNode" xmi:id="_RvuMM6TnEeaX27fWJyB_Zg" type="6002">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_RvuMNKTnEeaX27fWJyB_Zg" y="40"/>
+    </children>
+    <children xmi:type="notation:DecorationNode" xmi:id="_RvuzQKTnEeaX27fWJyB_Zg" type="6004">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_RvuzQaTnEeaX27fWJyB_Zg" y="60"/>
+    </children>
+    <styles xmi:type="notation:FontStyle" xmi:id="_RvuMMaTnEeaX27fWJyB_Zg" fontName="Segoe UI"/>
+    <element xmi:type="ecore:EReference" href="default.ecore#//sudoku/%"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_RvuMMqTnEeaX27fWJyB_Zg" points="[-4, 7, 82, -163]$[-79, 178, 7, 8]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Rvx2kKTnEeaX27fWJyB_Zg" id="(0.5172413793103449,0.8653846153846154)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Rvx2kaTnEeaX27fWJyB_Zg" id="(0.6158940397350994,0.8461538461538461)"/>
+  </edges>
+</notation:Diagram>

@@ -24,6 +24,8 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link sudoku.Field#isSevenCandidate <em>Seven Candidate</em>}</li>
  *   <li>{@link sudoku.Field#isEightCandidate <em>Eight Candidate</em>}</li>
  *   <li>{@link sudoku.Field#isNineCandidate <em>Nine Candidate</em>}</li>
+ *   <li>{@link sudoku.Field#getColumn <em>Column</em>}</li>
+ *   <li>{@link sudoku.Field#getRow <em>Row</em>}</li>
  * </ul>
  *
  * @see sudoku.SudokuPackage#getField()
@@ -60,6 +62,7 @@ public interface Field extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Sub Grid</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link sudoku.Subgrid#getFieldsInBox <em>Fields In Box</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Sub Grid</em>' reference isn't clear,
@@ -69,7 +72,8 @@ public interface Field extends EObject {
 	 * @return the value of the '<em>Sub Grid</em>' reference.
 	 * @see #setSubGrid(Subgrid)
 	 * @see sudoku.SudokuPackage#getField_SubGrid()
-	 * @model required="true"
+	 * @see sudoku.Subgrid#getFieldsInBox
+	 * @model opposite="fieldsInBox" required="true"
 	 * @generated
 	 */
 	Subgrid getSubGrid();
@@ -326,5 +330,61 @@ public interface Field extends EObject {
 	 * @generated
 	 */
 	void setNineCandidate(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Column</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link sudoku.Column#getFields <em>Fields</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Column</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Column</em>' reference.
+	 * @see #setColumn(Column)
+	 * @see sudoku.SudokuPackage#getField_Column()
+	 * @see sudoku.Column#getFields
+	 * @model opposite="fields" required="true"
+	 * @generated
+	 */
+	Column getColumn();
+
+	/**
+	 * Sets the value of the '{@link sudoku.Field#getColumn <em>Column</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Column</em>' reference.
+	 * @see #getColumn()
+	 * @generated
+	 */
+	void setColumn(Column value);
+
+	/**
+	 * Returns the value of the '<em><b>Row</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link sudoku.Row#getFields <em>Fields</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Row</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Row</em>' reference.
+	 * @see #setRow(Row)
+	 * @see sudoku.SudokuPackage#getField_Row()
+	 * @see sudoku.Row#getFields
+	 * @model opposite="fields" required="true"
+	 * @generated
+	 */
+	Row getRow();
+
+	/**
+	 * Sets the value of the '{@link sudoku.Field#getRow <em>Row</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Row</em>' reference.
+	 * @see #getRow()
+	 * @generated
+	 */
+	void setRow(Row value);
 
 } // Field

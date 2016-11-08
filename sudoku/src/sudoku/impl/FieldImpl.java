@@ -4,13 +4,16 @@ package sudoku.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import sudoku.Column;
 import sudoku.Field;
+import sudoku.Row;
 import sudoku.Subgrid;
 import sudoku.SudokuPackage;
 
@@ -33,6 +36,8 @@ import sudoku.SudokuPackage;
  *   <li>{@link sudoku.impl.FieldImpl#isSevenCandidate <em>Seven Candidate</em>}</li>
  *   <li>{@link sudoku.impl.FieldImpl#isEightCandidate <em>Eight Candidate</em>}</li>
  *   <li>{@link sudoku.impl.FieldImpl#isNineCandidate <em>Nine Candidate</em>}</li>
+ *   <li>{@link sudoku.impl.FieldImpl#getColumn <em>Column</em>}</li>
+ *   <li>{@link sudoku.impl.FieldImpl#getRow <em>Row</em>}</li>
  * </ul>
  *
  * @generated
@@ -249,6 +254,26 @@ public class FieldImpl extends MinimalEObjectImpl.Container implements Field {
 	protected boolean nineCandidate = NINE_CANDIDATE_EDEFAULT;
 
 	/**
+	 * The cached value of the '{@link #getColumn() <em>Column</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getColumn()
+	 * @generated
+	 * @ordered
+	 */
+	protected Column column;
+
+	/**
+	 * The cached value of the '{@link #getRow() <em>Row</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRow()
+	 * @generated
+	 * @ordered
+	 */
+	protected Row row;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -319,11 +344,33 @@ public class FieldImpl extends MinimalEObjectImpl.Container implements Field {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSubGrid(Subgrid newSubGrid) {
+	public NotificationChain basicSetSubGrid(Subgrid newSubGrid, NotificationChain msgs) {
 		Subgrid oldSubGrid = subGrid;
 		subGrid = newSubGrid;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SudokuPackage.FIELD__SUB_GRID, oldSubGrid, subGrid));
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SudokuPackage.FIELD__SUB_GRID, oldSubGrid, newSubGrid);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSubGrid(Subgrid newSubGrid) {
+		if (newSubGrid != subGrid) {
+			NotificationChain msgs = null;
+			if (subGrid != null)
+				msgs = ((InternalEObject)subGrid).eInverseRemove(this, SudokuPackage.SUBGRID__FIELDS_IN_BOX, Subgrid.class, msgs);
+			if (newSubGrid != null)
+				msgs = ((InternalEObject)newSubGrid).eInverseAdd(this, SudokuPackage.SUBGRID__FIELDS_IN_BOX, Subgrid.class, msgs);
+			msgs = basicSetSubGrid(newSubGrid, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SudokuPackage.FIELD__SUB_GRID, newSubGrid, newSubGrid));
 	}
 
 	/**
@@ -520,6 +567,168 @@ public class FieldImpl extends MinimalEObjectImpl.Container implements Field {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Column getColumn() {
+		if (column != null && column.eIsProxy()) {
+			InternalEObject oldColumn = (InternalEObject)column;
+			column = (Column)eResolveProxy(oldColumn);
+			if (column != oldColumn) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, SudokuPackage.FIELD__COLUMN, oldColumn, column));
+			}
+		}
+		return column;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Column basicGetColumn() {
+		return column;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetColumn(Column newColumn, NotificationChain msgs) {
+		Column oldColumn = column;
+		column = newColumn;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SudokuPackage.FIELD__COLUMN, oldColumn, newColumn);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setColumn(Column newColumn) {
+		if (newColumn != column) {
+			NotificationChain msgs = null;
+			if (column != null)
+				msgs = ((InternalEObject)column).eInverseRemove(this, SudokuPackage.COLUMN__FIELDS, Column.class, msgs);
+			if (newColumn != null)
+				msgs = ((InternalEObject)newColumn).eInverseAdd(this, SudokuPackage.COLUMN__FIELDS, Column.class, msgs);
+			msgs = basicSetColumn(newColumn, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SudokuPackage.FIELD__COLUMN, newColumn, newColumn));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Row getRow() {
+		if (row != null && row.eIsProxy()) {
+			InternalEObject oldRow = (InternalEObject)row;
+			row = (Row)eResolveProxy(oldRow);
+			if (row != oldRow) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, SudokuPackage.FIELD__ROW, oldRow, row));
+			}
+		}
+		return row;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Row basicGetRow() {
+		return row;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetRow(Row newRow, NotificationChain msgs) {
+		Row oldRow = row;
+		row = newRow;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SudokuPackage.FIELD__ROW, oldRow, newRow);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setRow(Row newRow) {
+		if (newRow != row) {
+			NotificationChain msgs = null;
+			if (row != null)
+				msgs = ((InternalEObject)row).eInverseRemove(this, SudokuPackage.ROW__FIELDS, Row.class, msgs);
+			if (newRow != null)
+				msgs = ((InternalEObject)newRow).eInverseAdd(this, SudokuPackage.ROW__FIELDS, Row.class, msgs);
+			msgs = basicSetRow(newRow, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SudokuPackage.FIELD__ROW, newRow, newRow));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case SudokuPackage.FIELD__SUB_GRID:
+				if (subGrid != null)
+					msgs = ((InternalEObject)subGrid).eInverseRemove(this, SudokuPackage.SUBGRID__FIELDS_IN_BOX, Subgrid.class, msgs);
+				return basicSetSubGrid((Subgrid)otherEnd, msgs);
+			case SudokuPackage.FIELD__COLUMN:
+				if (column != null)
+					msgs = ((InternalEObject)column).eInverseRemove(this, SudokuPackage.COLUMN__FIELDS, Column.class, msgs);
+				return basicSetColumn((Column)otherEnd, msgs);
+			case SudokuPackage.FIELD__ROW:
+				if (row != null)
+					msgs = ((InternalEObject)row).eInverseRemove(this, SudokuPackage.ROW__FIELDS, Row.class, msgs);
+				return basicSetRow((Row)otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case SudokuPackage.FIELD__SUB_GRID:
+				return basicSetSubGrid(null, msgs);
+			case SudokuPackage.FIELD__COLUMN:
+				return basicSetColumn(null, msgs);
+			case SudokuPackage.FIELD__ROW:
+				return basicSetRow(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -546,6 +755,12 @@ public class FieldImpl extends MinimalEObjectImpl.Container implements Field {
 				return isEightCandidate();
 			case SudokuPackage.FIELD__NINE_CANDIDATE:
 				return isNineCandidate();
+			case SudokuPackage.FIELD__COLUMN:
+				if (resolve) return getColumn();
+				return basicGetColumn();
+			case SudokuPackage.FIELD__ROW:
+				if (resolve) return getRow();
+				return basicGetRow();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -590,6 +805,12 @@ public class FieldImpl extends MinimalEObjectImpl.Container implements Field {
 				return;
 			case SudokuPackage.FIELD__NINE_CANDIDATE:
 				setNineCandidate((Boolean)newValue);
+				return;
+			case SudokuPackage.FIELD__COLUMN:
+				setColumn((Column)newValue);
+				return;
+			case SudokuPackage.FIELD__ROW:
+				setRow((Row)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -636,6 +857,12 @@ public class FieldImpl extends MinimalEObjectImpl.Container implements Field {
 			case SudokuPackage.FIELD__NINE_CANDIDATE:
 				setNineCandidate(NINE_CANDIDATE_EDEFAULT);
 				return;
+			case SudokuPackage.FIELD__COLUMN:
+				setColumn((Column)null);
+				return;
+			case SudokuPackage.FIELD__ROW:
+				setRow((Row)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -670,6 +897,10 @@ public class FieldImpl extends MinimalEObjectImpl.Container implements Field {
 				return eightCandidate != EIGHT_CANDIDATE_EDEFAULT;
 			case SudokuPackage.FIELD__NINE_CANDIDATE:
 				return nineCandidate != NINE_CANDIDATE_EDEFAULT;
+			case SudokuPackage.FIELD__COLUMN:
+				return column != null;
+			case SudokuPackage.FIELD__ROW:
+				return row != null;
 		}
 		return super.eIsSet(featureID);
 	}

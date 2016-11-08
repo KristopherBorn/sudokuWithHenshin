@@ -169,8 +169,26 @@ public class SudokuPackageImpl extends EPackageImpl implements SudokuPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSubgrid_FildsInBox() {
+	public EReference getSubgrid_FieldsInBox() {
 		return (EReference)subgridEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSubgrid_Rows() {
+		return (EReference)subgridEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSubgrid_Columns() {
+		return (EReference)subgridEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -286,6 +304,24 @@ public class SudokuPackageImpl extends EPackageImpl implements SudokuPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getField_Column() {
+		return (EReference)fieldEClass.getEStructuralFeatures().get(11);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getField_Row() {
+		return (EReference)fieldEClass.getEStructuralFeatures().get(12);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getRow() {
 		return rowEClass;
 	}
@@ -304,6 +340,15 @@ public class SudokuPackageImpl extends EPackageImpl implements SudokuPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getRow_Subgrid() {
+		return (EReference)rowEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getColumn() {
 		return columnEClass;
 	}
@@ -315,6 +360,15 @@ public class SudokuPackageImpl extends EPackageImpl implements SudokuPackage {
 	 */
 	public EReference getColumn_Fields() {
 		return (EReference)columnEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getColumn_Subgrid() {
+		return (EReference)columnEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -386,7 +440,9 @@ public class SudokuPackageImpl extends EPackageImpl implements SudokuPackage {
 		createEReference(gridEClass, GRID__FIELDS);
 
 		subgridEClass = createEClass(SUBGRID);
-		createEReference(subgridEClass, SUBGRID__FILDS_IN_BOX);
+		createEReference(subgridEClass, SUBGRID__FIELDS_IN_BOX);
+		createEReference(subgridEClass, SUBGRID__ROWS);
+		createEReference(subgridEClass, SUBGRID__COLUMNS);
 
 		fieldEClass = createEClass(FIELD);
 		createEAttribute(fieldEClass, FIELD__VALUE);
@@ -400,12 +456,16 @@ public class SudokuPackageImpl extends EPackageImpl implements SudokuPackage {
 		createEAttribute(fieldEClass, FIELD__SEVEN_CANDIDATE);
 		createEAttribute(fieldEClass, FIELD__EIGHT_CANDIDATE);
 		createEAttribute(fieldEClass, FIELD__NINE_CANDIDATE);
+		createEReference(fieldEClass, FIELD__COLUMN);
+		createEReference(fieldEClass, FIELD__ROW);
 
 		rowEClass = createEClass(ROW);
 		createEReference(rowEClass, ROW__FIELDS);
+		createEReference(rowEClass, ROW__SUBGRID);
 
 		columnEClass = createEClass(COLUMN);
 		createEReference(columnEClass, COLUMN__FIELDS);
+		createEReference(columnEClass, COLUMN__SUBGRID);
 
 		sudokuEClass = createEClass(SUDOKU);
 		createEReference(sudokuEClass, SUDOKU__GRID);
@@ -448,11 +508,13 @@ public class SudokuPackageImpl extends EPackageImpl implements SudokuPackage {
 		initEReference(getGrid_Fields(), this.getField(), null, "fields", null, 81, 81, Grid.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(subgridEClass, Subgrid.class, "Subgrid", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSubgrid_FildsInBox(), this.getField(), null, "fildsInBox", null, 9, 9, Subgrid.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSubgrid_FieldsInBox(), this.getField(), this.getField_SubGrid(), "fieldsInBox", null, 9, 9, Subgrid.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSubgrid_Rows(), this.getRow(), this.getRow_Subgrid(), "rows", null, 3, 3, Subgrid.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSubgrid_Columns(), this.getColumn(), this.getColumn_Subgrid(), "columns", null, 3, 3, Subgrid.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(fieldEClass, Field.class, "Field", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getField_Value(), ecorePackage.getEInt(), "value", "0", 0, 1, Field.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getField_SubGrid(), this.getSubgrid(), null, "subGrid", null, 1, 1, Field.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getField_SubGrid(), this.getSubgrid(), this.getSubgrid_FieldsInBox(), "subGrid", null, 1, 1, Field.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getField_OneCandidate(), ecorePackage.getEBoolean(), "oneCandidate", "true", 0, 1, Field.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getField_TwoCandidate(), ecorePackage.getEBoolean(), "twoCandidate", "true", 0, 1, Field.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getField_ThreeCandidate(), ecorePackage.getEBoolean(), "threeCandidate", "true", 0, 1, Field.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -462,12 +524,16 @@ public class SudokuPackageImpl extends EPackageImpl implements SudokuPackage {
 		initEAttribute(getField_SevenCandidate(), ecorePackage.getEBoolean(), "sevenCandidate", "true", 0, 1, Field.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getField_EightCandidate(), ecorePackage.getEBoolean(), "eightCandidate", "true", 0, 1, Field.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getField_NineCandidate(), ecorePackage.getEBoolean(), "nineCandidate", "true", 0, 1, Field.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getField_Column(), this.getColumn(), this.getColumn_Fields(), "column", null, 1, 1, Field.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getField_Row(), this.getRow(), this.getRow_Fields(), "row", null, 1, 1, Field.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(rowEClass, Row.class, "Row", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getRow_Fields(), this.getField(), null, "fields", null, 9, 9, Row.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRow_Fields(), this.getField(), this.getField_Row(), "fields", null, 9, 9, Row.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRow_Subgrid(), this.getSubgrid(), this.getSubgrid_Rows(), "subgrid", null, 3, 3, Row.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(columnEClass, Column.class, "Column", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getColumn_Fields(), this.getField(), null, "fields", null, 9, 9, Column.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getColumn_Fields(), this.getField(), this.getField_Column(), "fields", null, 9, 9, Column.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getColumn_Subgrid(), this.getSubgrid(), this.getSubgrid_Columns(), "subgrid", null, 3, 3, Column.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(sudokuEClass, Sudoku.class, "Sudoku", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSudoku_Grid(), this.getGrid(), null, "Grid", null, 1, 1, Sudoku.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
